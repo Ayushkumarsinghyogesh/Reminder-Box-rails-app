@@ -1,0 +1,19 @@
+
+<h1><%= @bucket.name %></h1>
+<p><%= @bucket.description %></p>
+
+<h3>Pending Tasks</h3>
+<ul>
+    <% @bucket.tasks_by_status("Pending").each do |task| %>
+        <li><%= link_to task.name, task_path(task) %></li>
+    <% end %>
+</ul>
+
+<h3>Completed Tasks</h3>
+<ul>
+    <% @bucket.tasks_by_status("Completed").each do |task| %>
+        <li><%= link_to task.name, task_path(task) %></li>
+    <% end %>
+</ul>
+
+<%= button_to "Edit Bucket", edit_bucket_path(@bucket), method: :get %>

@@ -1,0 +1,24 @@
+<h1>BUCKETS LIST</h1>
+
+<%= button_to "Create Bucket", new_bucket_path, method: :get %>
+
+<h3>Empty Buckets</h3>
+<ul>
+<% @empty_buckets.each do |bucket| %>
+    <li><%= link_to bucket.name, bucket_path(bucket) %></li>
+<% end %>
+</ul>
+
+<h3>Pending Buckets</h3>
+<ul>
+<% @pending_buckets.each do |bucket| %>
+    <li><%= link_to bucket.name, bucket_path(bucket) %></li>
+<% end %>
+</ul>
+
+<h3>Completed Buckets</h3>
+<ul>
+<% @completed_buckets.each do |bucket| %>
+    <li><%= link_to bucket.name, bucket_path(bucket) %></li>
+<% end %>
+</ul>
