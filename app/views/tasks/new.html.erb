@@ -1,0 +1,11 @@
+<h1>CREATE NEW TASK</h1>
+
+<%= form_for(@task) do |f| %>
+    <%= f.label :name%><br>
+    <%= f.text_field :name%><br>
+    <br><%= f.label :description%><br>
+    <%= f.text_area :description%><br>
+    <br><%= f.label "Bucket"%>
+    <%= f.collection_select :bucket_id, Bucket.order(:name),:id, :name %><br>
+    <br><%= f.submit %>
+<% end %>
